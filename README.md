@@ -8,7 +8,7 @@ The launcher reads the file from `https://raw.githubusercontent.com/WaystoneWork
 
 ## List your server
 
-1. Run a server that players can reach from the internet: the web API port (default 8080) and the game ports ([hosting guide](https://github.com/WaystoneWorks/Poe2ModdingProject/blob/main/docs/guides/hosting.md)). **Use https** for the web API if you can (a TLS reverse proxy in front); players are warned about plain `http://` before they add a server, and many will not.
+1. Run a server that players can reach from the internet: the web API port (default 8080) and the game ports ([hosting guide](https://github.com/WaystoneWorks/Poe2Server/blob/main/docs/hosting.md)). **Use https** for the web API if you can (a TLS reverse proxy in front); players are warned about plain `http://` before they add a server, and many will not.
 2. Check that `https://<your address>/api/v1/server` answers with JSON.
 3. Fork this repository and add one entry to the `servers` list in `servers.json` (copy it from [`servers.example.json`](servers.example.json)).
 4. Run `python3 scripts/validate.py` (Python 3, nothing to install). Fix what it reports.
@@ -42,8 +42,8 @@ To change or remove your entry, send another pull request. The `id` never change
 ## Maintainers
 
 - Merge a pull request only when the `validate` check is green and the address answers.
-- The launcher is forgiving: an invalid entry is skipped on the player's side and the rest of the list still works, so a mistake that slips through never breaks the list for everybody.
-- Creating this repository: copy the contents of `docs/server-list-template/` of Poe2ModdingProject into the root of `WaystoneWorks/Poe2ServerList` (the `servers.json` must be at the root of the `main` branch).
+- The launcher skips an invalid entry and keeps the rest of the list.
+- Setup: copy `docs/server-list-template/` of Poe2ModdingProject into the root of `WaystoneWorks/Poe2ServerList` (`servers.json` at the root of `main`).
 
 ## License
 
